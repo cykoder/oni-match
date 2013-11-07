@@ -1,4 +1,11 @@
-oni-match
+Oni Match
 =========
+Source for the Oni Match minigame. The game was created using the [Oni Engine](https://github.com/SamHellawell/oni) to demonstrate its flexibility and suitability.
 
-Source for the Oni Match minigame (created with the Oni Engine)
+Setup
+=====
+To be able to build the game, you'll need to pull the [Oni Engine](https://github.com/SamHellawell/oni). Get it from GitHub ([https://github.com/SamHellawell/oni/](https://github.com/SamHellawell/oni/)) and copy the contents of src/ into the src/ directory for this repository. Alternatively, you can pull the engine seperately and add it as a classpath into your project.
+
+Contact
+=======
+Any issues or queries, the best way to contact me is to email me at [sshellawell@gmail.com](mailto:sshellawell@gmail.com), tweet me [@Beckiwoosh](http://twitter.com/Beckiwoosh) or add me on Skype: *becki.ness*

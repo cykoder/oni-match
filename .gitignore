@@ -1,0 +1,9 @@
+bin/*
+obj/
+dist/*
+cert/*
+
+src/oni
+src/starling
+src/adobe
+src/oniexample

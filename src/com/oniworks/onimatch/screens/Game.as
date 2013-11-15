@@ -300,7 +300,7 @@ package com.oniworks.onimatch.screens
 			reset();
 			
 			//Setup a scene
-			createScene(null, false);
+			createScene(false);
 			
 			//Create game grid
 			grid = [];

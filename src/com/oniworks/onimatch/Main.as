@@ -5,6 +5,7 @@ package com.oniworks.onimatch
 	import oni.assets.AssetManager;
 	import oni.Startup;
 	import oni.utils.Backend;
+	import oni.utils.Platform;
 	
 	/**
 	 * ...
@@ -18,6 +19,7 @@ package com.oniworks.onimatch
 			//Set asset stores
 			AssetManager.AssetStoreSD = AssetStoreSD;
 			AssetManager.AssetStoreHD = AssetStoreHD;
+			AssetManager.forceSD = true;
 			
 			//Set startup class
 			Startup.StartupClass = OniMatch;
@@ -28,7 +30,7 @@ package com.oniworks.onimatch
 			});
 			
 			//Super, because we want to use the default initialiser!
-			super();
+			super(1024, 768);
 		}
 		
 	}

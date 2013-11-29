@@ -30,7 +30,7 @@ package com.oniworks.onimatch
 			});
 			
 			//Super, because we want to use the default initialiser!
-			super(1024, 768);
+			super(1024, 768, true);
 		}
 		
 	}

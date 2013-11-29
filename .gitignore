@@ -2,6 +2,17 @@ bin/*
 obj/
 dist/*
 cert/*
+icons/*
+bat/*
+
+obj/OniMatch-AIRConfig.old
+obj/OniMatch-AIRConfig.xml
+ChromeWebApp/*
+Run.bat
+application.xml
+PackageApp.bat
+OniMatch-AIR.as3proj
+
 
 src/oni
 src/starling

@@ -54,6 +54,8 @@
   <libraryPaths>
     <element path="lib\Flox-AS3.swc" />
     <element path="lib\nape.swc" />
+    <element path="..\OniEngine\src\nape.swc" />
+    <element path="..\OniEngine\src\Flox-AS3.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

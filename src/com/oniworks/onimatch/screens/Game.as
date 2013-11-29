@@ -13,6 +13,9 @@ package com.oniworks.onimatch.screens
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
+	import starling.text.TextField;
+	import starling.utils.HAlign;
+	import starling.utils.VAlign;
 	/**
 	 * ...
 	 * @author Sam Hellawell
@@ -38,6 +41,8 @@ package com.oniworks.onimatch.screens
 		 * The current selected head
 		 */
 		private var _selectedHead:Head, _headToSwitch:Head;
+		
+		private var _scoreTextFields:Array;
 		
 		/**
 		 * The game grid
@@ -109,11 +114,21 @@ package com.oniworks.onimatch.screens
 			selection.pivotX = selection.pivotY = 50;
 			addChild(selection);
 			
-			//Listen for screen added
-			addEventListener(Oni.SCREEN_ADDED, _onScreenAdded);
+			//Create a score textfields
+			_scoreTextFields = new Array();
+			for (var i:int = 0; i < 6; i++)
+			{
+				var textfield:TextField = new TextField(16, 30, "0", "Calibri", 24, 0x414141, true);
+				textfield.hAlign = HAlign.CENTER;
+				textfield.vAlign = VAlign.CENTER;
+				textfield.x = 35 + (17*i);
+				textfield.y = 268;
+				_scoreTextFields.push(textfield);
+				addChild(textfield);
+			}
 			
 			//Listen for screen added
-			//addEventListener(Oni.SCREEN_ADDED, _onScreenAdded);
+			addEventListener(Oni.SCREEN_ADDED, _onScreenAdded);
 			
 			//Listen for head selection
 			addEventListener(Game.HEAD_SELECTED, _onHeadSelected);

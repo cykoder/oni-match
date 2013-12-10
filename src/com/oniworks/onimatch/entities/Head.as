@@ -25,6 +25,9 @@ package com.oniworks.onimatch.entities
 		
 		public function Head(game:Game, type:int, rx:int, ry:int) 
 		{
+			//Super
+			super( { type: type, rx: rx, ry: ry } );
+			
 			//Set type
 			this._type = type;
 			

@@ -4,6 +4,7 @@ package com.oniworks.onimatch.screens
 	import com.oniworks.onimatch.entities.Head;
 	import com.oniworks.onimatch.OniMatch;
 	import flash.globalization.StringTools;
+	import oni.core.Scene;
 	import oni.Oni;
 	import oni.screens.GameScreen;
 	import oni.screens.Screen;
@@ -133,10 +134,47 @@ package com.oniworks.onimatch.screens
 			//Listen for head selection
 			addEventListener(Game.HEAD_SELECTED, _onHeadSelected);
 			
+			//Listen for update
 			addEventListener(Oni.UPDATE, _onUpdate);
 			
-			
+			//Setup game
 			setupGame();
+		}
+		
+		/**
+		 * The current score
+		 */
+		public function get score():int
+		{
+			//Get score as string
+			var scoreString:String = "";
+			for (var i:uint = 0; i < _scoreTextFields.length; i++) 
+			{
+				scoreString = scoreString + _scoreTextFields[i].text;
+			}
+			
+			//Return as int
+			return int(scoreString);
+		}
+		
+		/**
+		 * The current score
+		 */
+		public function set score(value:int):void
+		{
+			//Get score as string
+			var scoreString:String = value.toString();
+			
+			//Add padding
+			var i:uint;
+			if (scoreString.length < 6)
+			{
+				var l:uint = 6 - scoreString.length;
+				for (i = 0; i < l; i++) scoreString = "0" + scoreString;
+			}
+			
+			//Populate
+			for (i = 0; i < _scoreTextFields.length; i++) _scoreTextFields[i].text = scoreString.substr(i, 1);
 		}
 		
 		/**
@@ -314,8 +352,8 @@ package com.oniworks.onimatch.screens
 			//Reset
 			reset();
 			
-			//Setup a scene
-			createScene(false);
+			//Create a scene
+			scene = new Scene(false);
 			
 			//Create game grid
 			grid = [];
@@ -353,6 +391,9 @@ package com.oniworks.onimatch.screens
 			
 			//Set clock timer!
 			_gameTime = 0;
+			
+			//Reset score
+			score = 0;
 		}
 		
 		/**
@@ -456,6 +497,7 @@ package com.oniworks.onimatch.screens
 				for each(var head:Head in matches)
 				{
 					grid[head.rx][head.ry] = null;
+					score += (Math.floor(Math.random() * (matches.length - 1 + 1)) + 1) * 40;
 					entities.remove(head);
 				}
 				
